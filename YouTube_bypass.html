@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<iframe id="ytplayer" width="702" height="395" src="https://www.youtube.com/embed/aW8S_ig3Dck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+<div id="respond"></div>
+<input type="text" id="inputBox" placeholder="URL Here">
+<button id="start" onclick="addSRC()">Click here to play</button>
+<script>
+const iframePlayer = document.getElementById("ytplayer");
+function addSRC() {
+    const inputText = document.getElementById("inputBox").value.trim();
+    const ytURLstart = "https://www.youtube.com/embed/";
+    const match = inputText.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+    if (!match) {
+        document.getElementById("respond").textContent = "Invalid URL";
+        return;
+    }
+    const fullURL = ytURLstart + match[1];
+    iframePlayer.src = fullURL;
+}
+</script>
+</body>
+</html>
