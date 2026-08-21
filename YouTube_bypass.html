@@ -11,6 +11,7 @@ const iframePlayer = document.getElementById("ytplayer");
 function addSRC() {
     const inputText = document.getElementById("inputBox").value.trim();
     const ytURLstart = "https://www.youtube.com/embed/";
+    const ytURLend = "?autoplay=1&playsinline=1"
     const match = inputText.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
     if (!match) {
         document.getElementById("respond").textContent = "Invalid URL";
